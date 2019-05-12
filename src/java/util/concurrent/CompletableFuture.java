@@ -1861,7 +1861,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
     /**
      * Returns a new CompletableFuture that is already completed with
      * the given value.
-     * 通过一个确定对象返回一个CompletableFutrue对象。
+     * 将确认值的对象包装成CompletableFuture对象。
      * @param value the value
      * @param <U> the type of the value
      * @return the completed CompletableFuture
@@ -1886,7 +1886,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
      *
      * @return the result value
      * @throws CancellationException if this future was cancelled
-     * @throws ExecutionException if this future completed exceptionally
+     * @throws ExecutionException if this future completed exceptionally(检查异常，当任务异常结束时触发)
      * @throws InterruptedException if the current thread was interrupted
      * while waiting
      */
@@ -1923,11 +1923,12 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
      * CompletableFuture threw an exception, this method throws an
      * (unchecked) {@link CompletionException} with the underlying
      * exception as its cause.
-     *
+     * join返回计算的结果或者抛出一个unchecked异常(CompletionException)，它和get对抛出的异常的处理有些细微的区别
+     * @see #get()
      * @return the result value
      * @throws CancellationException if the computation was cancelled
-     * @throws CompletionException if this future completed
-     * exceptionally or a completion computation threw an exception
+     * @throws CompletionException （运行时异常）if this future completed
+     * exceptionally or a completion computation threw an exception(future异常完成或者执行过程中出现异常)
      */
     public T join() {
         Object r;
@@ -1937,7 +1938,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
     /**
      * Returns the result value (or throws any encountered exception)
      * if completed, else returns the given valueIfAbsent.
-     *
+     * 如果结果已经计算完则返回结果或者抛出异常，否则返回给定的valueIfAbsent值。
      * @param valueIfAbsent the value to return if not completed
      * @return the result value, if completed, else the given valueIfAbsent
      * @throws CancellationException if the computation was cancelled
@@ -1952,7 +1953,11 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
     /**
      * If not already completed, sets the value returned by {@link
      * #get()} and related methods to the given value.
-     *
+     * 客户端调用future.get就会一致傻等下去,通过该方法直接完成一个计算，触发客户端的等待。
+     * CompletableFuture.complete()、CompletableFuture.completeExceptionally只能被调用一次。
+     * 但是我们有两个后门方法可以重设这个值:obtrudeValue、obtrudeException，但是使用的时候要小心，
+     * 因为complete已经触发了客户端，有可能导致客户端会得到不期望的结果。
+     * @see #isDone()
      * @param value the result value
      * @return {@code true} if this invocation caused this CompletableFuture
      * to transition to a completed state, else {@code false}
@@ -1966,7 +1971,8 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
     /**
      * If not already completed, causes invocations of {@link #get()}
      * and related methods to throw the given exception.
-     *
+     * 当任务未完成时，可以直接抛出一个异常，触发客户端的等待。
+     * @see #isCompletedExceptionally()
      * @param ex the exception
      * @return {@code true} if this invocation caused this CompletableFuture
      * to transition to a completed state, else {@code false}
@@ -2252,6 +2258,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
      * that have not already completed will also complete
      * exceptionally, with a {@link CompletionException} caused by
      * this {@code CancellationException}.
+     * 取消任务，同CompletableFuture将抛出CancellationException。
      *
      * @param mayInterruptIfRunning this value has no effect in this
      * implementation because interrupts are not used to control

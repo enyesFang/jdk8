@@ -32,6 +32,7 @@ import java.util.Objects;
  *
  * <p>This is a <a href="package-summary.html">functional interface</a>
  * whose functional method is {@link #apply(Object, Object)}.
+ * 将两个参数转换为一个结果值。
  *
  * @param <T> the type of the first argument to the function
  * @param <U> the type of the second argument to the function

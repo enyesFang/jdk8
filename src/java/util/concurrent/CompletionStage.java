@@ -132,7 +132,7 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     *
+     * 在之前的任务完成后再同步执行fn逻辑，使用主线程执行，如main。
      * @param fn the function to use to compute the value of
      * the returned CompletionStage
      * @param <U> the function's return type
@@ -148,7 +148,7 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     *
+     * 在之前的任务完成后再异步执行该操作，使用线程池ForkJoinPool.commonPool-worker-1。
      * @param fn the function to use to compute the value of
      * the returned CompletionStage
      * @param <U> the function's return type
@@ -182,7 +182,8 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     *
+     * action依赖前置的计算结果，并且<b>不需要返回本次计算结果</b>，有点类似于生产者（前一次计算）-消费者（本次计算）模式。
+     * 消费者是同步执行的，所以不需要在 CompletableFuture 里对结果进行合并。
      * @param action the action to perform before completing the
      * returned CompletionStage
      * @return the new CompletionStage
@@ -380,7 +381,7 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     *
+     * 在this和other两个任务完成之后，再运行action逻辑。
      * @param other the other CompletionStage
      * @param action the action to perform before completing the
      * returned CompletionStage
@@ -486,7 +487,7 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     *
+     * 在完成this 或者 other 之后(取this/other较快执行的结果)再执行action逻辑。
      * @param other the other CompletionStage
      * @param action the action to perform before completing the
      * returned CompletionStage
@@ -712,7 +713,8 @@ public interface CompletionStage<T> {
      * with the result (or {@code null} if none) and the exception (or
      * {@code null} if none) of this stage as arguments, and the
      * function's result is used to complete the returned stage.
-     *
+     * 当原先的CompletableFuture的值计算完成或者抛出异常的时候，会触发这个CompletableFuture对象的计算，
+     * 结果由BiFunction参数计算而得。因此这组方法兼有whenComplete和转换的两个功能
      * @param fn the function to use to compute the value of the
      * returned CompletionStage
      * @param <U> the function's return type

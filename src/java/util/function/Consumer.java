@@ -33,10 +33,11 @@ import java.util.Objects;
  *
  * <p>This is a <a href="package-summary.html">functional interface</a>
  * whose functional method is {@link #accept(Object)}.
- *
+ * 消费者，accept方法接收参数并内部处理，不返回任何参数。与Function不同。
  * @param <T> the type of the input to the operation
  *
  * @since 1.8
+ * @see Function
  */
 @FunctionalInterface
 public interface Consumer<T> {
