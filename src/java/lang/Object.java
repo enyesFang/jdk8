@@ -262,7 +262,7 @@ public class Object {
      * </ul>
      * <p>
      * Only one thread at a time can own an object's monitor.
-     *
+     * notify( )方法只会通知等待队列中的第一个相关线程（不会通知优先级比较高的线程）.
      * @throws  IllegalMonitorStateException  if the current thread is not
      *               the owner of this object's monitor.
      * @see        java.lang.Object#notifyAll()
@@ -286,7 +286,7 @@ public class Object {
      * of this object's monitor. See the {@code notify} method for a
      * description of the ways in which a thread can become the owner of
      * a monitor.
-     *
+     * notifyAll( )通知所有等待该竞争资源的线程（也不会按照线程的优先级来执行）.
      * @throws  IllegalMonitorStateException  if the current thread is not
      *               the owner of this object's monitor.
      * @see        java.lang.Object#notify()
@@ -487,7 +487,12 @@ public class Object {
      * of this object's monitor. See the {@code notify} method for a
      * description of the ways in which a thread can become the owner of
      * a monitor.
-     *
+     * wait() 和 notify() 必须由对象持有者去调用，有三种方式：
+     * 1️执行该对象的synchronized实例方法
+     * 2️执行synchronized代码块
+     * 3️执行该类的synchronized静态方法
+     * 当想要调用wait( )进行线程等待时，必须要取得这个锁对象的控制权（对象监视器），一般是放到synchronized(obj)代码中。
+     * 如果当前线程不是当前对象所持有，则会报异常IllegalMonitorStateException
      * @throws  IllegalMonitorStateException  if the current thread is not
      *               the owner of the object's monitor.
      * @throws  InterruptedException if any thread interrupted the

@@ -67,7 +67,7 @@ import java.util.function.Supplier;
  * instance is accessible; after a thread goes away, all of its copies of
  * thread-local instances are subject to garbage collection (unless other
  * references to these copies exist).
- *
+ * ThreadLocal用来存放线程的局部变量。每个线程都有单独的局部变量，彼此之间不会共享。
  * @author  Josh Bloch and Doug Lea
  * @since   1.2
  */

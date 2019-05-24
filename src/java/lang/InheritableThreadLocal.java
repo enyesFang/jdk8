@@ -39,7 +39,10 @@ import java.lang.ref.*;
  * ordinary thread-local variables when the per-thread-attribute being
  * maintained in the variable (e.g., User ID, Transaction ID) must be
  * automatically transmitted to any child threads that are created.
- *
+ * 子线程继承父线程的ThreadLocal的值。
+ * InheritableThreadLocal 的实现原理是在子线程创建的时候把主线程的 InheritableThreadLocal 值的内容的引用 copy 了一份给自己用，
+ * 因为是 copy 出来的，所以创建子线程之后，子线程和主线程的 InheritableThreadLocal 是相互独立的了，
+ * 它们之间怎么改 InheritableThreadLocal 的值也不会同步到对方的 InheritableThreadLocal。
  * @author  Josh Bloch and Doug Lea
  * @see     ThreadLocal
  * @since   1.2

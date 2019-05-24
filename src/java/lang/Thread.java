@@ -1316,7 +1316,8 @@ class Thread implements Runnable {
      * <blockquote>
      * {@linkplain #join(long) join}{@code (0)}
      * </blockquote>
-     *
+     * 加入一个线程。当前运行的线程可以调用另一个线程的join方法，当前运行的线程转到阻塞状态，直至另一个线程运行结束，它才会恢复运行。
+     * 使用场景1）当前线程后续运行条件需要其他线程的运行结果。比如文件夹上传使用多线程同步上传，等待全部上传完成后，通知其他系统。
      * @throws  InterruptedException
      *          if any thread has interrupted the current thread. The
      *          <i>interrupted status</i> of the current thread is
