@@ -127,7 +127,7 @@ import java.util.regex.Pattern;
  *
  * @implSpec
  * This class is immutable and thread-safe.
- *
+ * 代表持续时间。可以非常方便地获取一段时间。
  * @since 1.8
  */
 public final class Duration

@@ -69,7 +69,7 @@ package java.time.format;
  *
  * @implSpec
  * This is an immutable and thread-safe enum.
- *
+ * 不同时间格式化风格的枚举值。我们一般不使用。
  * @since 1.8
  */
 public enum FormatStyle {

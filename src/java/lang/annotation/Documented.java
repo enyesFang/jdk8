@@ -32,7 +32,7 @@ package java.lang.annotation;
  * elements by their clients.  If a type declaration is annotated with
  * Documented, its annotations become part of the public API
  * of the annotated elements.
- *
+ * 生成Java Doc文档时是否将注解同步生成。
  * @author  Joshua Bloch
  * @since 1.5
  */

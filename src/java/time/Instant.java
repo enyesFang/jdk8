@@ -201,7 +201,7 @@ import java.util.Objects;
  *
  * @implSpec
  * This class is immutable and thread-safe.
- *
+ * 代表一个具体的时刻，可以精确到纳秒。
  * @since 1.8
  */
 public final class Instant
@@ -266,7 +266,7 @@ public final class Instant
      * <p>
      * Using this method will prevent the ability to use an alternate time-source for
      * testing because the clock is effectively hard-coded.
-     *
+     * 获取当前时刻。
      * @return the current instant using the system clock, not null
      */
     public static Instant now() {

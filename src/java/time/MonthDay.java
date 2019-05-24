@@ -121,7 +121,7 @@ import java.util.Objects;
  *
  * @implSpec
  * This class is immutable and thread-safe.
- *
+ * 月日。
  * @since 1.8
  */
 public final class MonthDay

@@ -41,7 +41,7 @@ package java.lang.annotation;
  * that this meta-annotation only causes annotations to be inherited
  * from superclasses; annotations on implemented interfaces have no
  * effect.
- *
+ * 标记注解是具有继承性。
  * @author  Joshua Bloch
  * @since 1.5
  * @jls 9.6.3.3 @Inherited

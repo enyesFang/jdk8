@@ -129,7 +129,7 @@ import java.util.Objects;
  *
  * @implSpec
  * This class is immutable and thread-safe.
- *
+ * 不带时区的日期、时间，例如2019-05-24T21:59:20。
  * @since 1.8
  */
 public final class LocalDateTime

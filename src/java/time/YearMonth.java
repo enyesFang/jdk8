@@ -125,7 +125,7 @@ import java.util.Objects;
  *
  * @implSpec
  * This class is immutable and thread-safe.
- *
+ * 年月。
  * @since 1.8
  */
 public final class YearMonth

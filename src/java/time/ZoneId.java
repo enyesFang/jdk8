@@ -171,7 +171,7 @@ import java.util.TimeZone;
  * This abstract class has two implementations, both of which are immutable and thread-safe.
  * One implementation models region-based IDs, the other is {@code ZoneOffset} modelling
  * offset-based IDs. This difference is visible in serialization.
- *
+ * 代表一个时区。
  * @since 1.8
  */
 public abstract class ZoneId implements Serializable {

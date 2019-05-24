@@ -226,7 +226,12 @@ import sun.reflect.annotation.AnnotationType;
  * incompatibly will result in a {@link
  * java.lang.annotation.AnnotationTypeMismatchException} or an
  * {@link java.lang.annotation.IncompleteAnnotationException}.
- *
+ * 该接口代表程序中可以接受注解的程序元素。
+ * @see Class 子类
+ * @see Constructor 子类
+ * @see Field 子类
+ * @see Method 子类
+ * @see Package 子类
  * @see java.lang.EnumConstantNotPresentException
  * @see java.lang.TypeNotPresentException
  * @see AnnotationFormatError
@@ -261,7 +266,7 @@ public interface AnnotatedElement {
    /**
      * Returns this element's annotation for the specified type if
      * such an annotation is <em>present</em>, else null.
-     *
+     * 返回该程序元素上存在的、指定类型的注解，如果该类型的注解不存在，则返回null。
      * @param <T> the type of the annotation to query for and return if present
      * @param annotationClass the Class object corresponding to the
      *        annotation type
@@ -280,7 +285,7 @@ public interface AnnotatedElement {
      *
      * The caller of this method is free to modify the returned array; it will
      * have no effect on the arrays returned to other callers.
-     *
+     * 返回该程序元素上存在的所有注解。
      * @return annotations present on this element
      * @since 1.5
      */
@@ -442,7 +447,7 @@ public interface AnnotatedElement {
      *
      * The caller of this method is free to modify the returned array; it will
      * have no effect on the arrays returned to other callers.
-     *
+     * 返回直接修饰该程序元素的所有Annotation。
      * @return annotations directly present on this element
      * @since 1.5
      */

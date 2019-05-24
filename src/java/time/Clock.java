@@ -128,7 +128,7 @@ import java.util.TimeZone;
  * That method provides little to no guarantee about the accuracy of the clock.
  * Applications requiring a more accurate clock must implement this abstract class
  * themselves using a different external clock, such as an NTP server.
- *
+ * 获取指定时区的当前日期、时间。
  * @since 1.8
  */
 public abstract class Clock {
@@ -389,7 +389,7 @@ public abstract class Clock {
      * where the creation of an object would be unacceptable.
      * <p>
      * The default implementation currently calls {@link #instant}.
-     *
+     * @see System#currentTimeMillis()
      * @return the current millisecond instant from this clock, measured from
      *  the Java epoch of 1970-01-01T00:00Z (UTC), not null
      * @throws DateTimeException if the instant cannot be obtained, not thrown by most implementations

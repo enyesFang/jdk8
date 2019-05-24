@@ -103,7 +103,7 @@ import java.util.Locale;
  *
  * @implSpec
  * This is an immutable and thread-safe enum.
- *
+ * 定义周日到周六的枚举值。
  * @since 1.8
  */
 public enum DayOfWeek implements TemporalAccessor, TemporalAdjuster {

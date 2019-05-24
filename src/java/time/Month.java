@@ -100,7 +100,7 @@ import java.util.Locale;
  *
  * @implSpec
  * This is an immutable and thread-safe enum.
- *
+ * 一月到12月的枚举值。
  * @since 1.8
  */
 public enum Month implements TemporalAccessor, TemporalAdjuster {

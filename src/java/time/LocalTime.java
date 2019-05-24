@@ -119,7 +119,7 @@ import java.util.Objects;
  *
  * @implSpec
  * This class is immutable and thread-safe.
- *
+ * 不带时区的时间，例如10:15:30。
  * @since 1.8
  */
 public final class LocalTime

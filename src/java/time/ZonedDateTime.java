@@ -158,7 +158,7 @@ import java.util.Objects;
  * The offset cannot be freely set, as the zone controls which offsets are valid.
  * <p>
  * This class is immutable and thread-safe.
- *
+ * 代表一个时区化的日期、时间。
  * @since 1.8
  */
 public final class ZonedDateTime

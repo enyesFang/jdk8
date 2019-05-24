@@ -184,7 +184,7 @@ package java.util;
  * <p>This interface is a member of the <a
  * href="{@docRoot}/../technotes/guides/collections/index.html"> Java Collections
  * Framework</a>.
- *
+ * 双向队列。
  * @author Doug Lea
  * @author Josh Bloch
  * @since  1.6

@@ -128,7 +128,7 @@ package java.util;
  * <p>This interface is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
- *
+ * 队列。特性"先进先出FIFO"
  * @see java.util.Collection
  * @see LinkedList
  * @see PriorityQueue
@@ -147,7 +147,7 @@ public interface Queue<E> extends Collection<E> {
      * immediately without violating capacity restrictions, returning
      * {@code true} upon success and throwing an {@code IllegalStateException}
      * if no space is currently available.
-     *
+     * 将参数元素加入到队列的尾部。
      * @param e the element to add
      * @return {@code true} (as specified by {@link Collection#add})
      * @throws IllegalStateException if the element cannot be added at this
@@ -167,7 +167,7 @@ public interface Queue<E> extends Collection<E> {
      * When using a capacity-restricted queue, this method is generally
      * preferable to {@link #add}, which can fail to insert an element only
      * by throwing an exception.
-     *
+     * 将参数元素加入到队列的尾部。当使用有容量限制的队列时，此方法通常比add方法更好。
      * @param e the element to add
      * @return {@code true} if the element was added to this queue, else
      *         {@code false}
@@ -184,7 +184,7 @@ public interface Queue<E> extends Collection<E> {
      * Retrieves and removes the head of this queue.  This method differs
      * from {@link #poll poll} only in that it throws an exception if this
      * queue is empty.
-     *
+     * 获取队列头部元素，并删除该元素。
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
@@ -193,7 +193,7 @@ public interface Queue<E> extends Collection<E> {
     /**
      * Retrieves and removes the head of this queue,
      * or returns {@code null} if this queue is empty.
-     *
+     * 获取队列头部元素，并删除该元素。如果此队列为空，则返回null。
      * @return the head of this queue, or {@code null} if this queue is empty
      */
     E poll();
@@ -202,7 +202,7 @@ public interface Queue<E> extends Collection<E> {
      * Retrieves, but does not remove, the head of this queue.  This method
      * differs from {@link #peek peek} only in that it throws an exception
      * if this queue is empty.
-     *
+     * 获取队列头部的元素，但是不删除元素。
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
@@ -211,7 +211,7 @@ public interface Queue<E> extends Collection<E> {
     /**
      * Retrieves, but does not remove, the head of this queue,
      * or returns {@code null} if this queue is empty.
-     *
+     * 获取队列头部元素，但是不删除该元素。如果此队列为空，则返回null。
      * @return the head of this queue, or {@code null} if this queue is empty
      */
     E peek();
