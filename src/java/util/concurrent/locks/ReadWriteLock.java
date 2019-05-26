@@ -108,7 +108,7 @@ package java.util.concurrent.locks;
  * </ul>
  * You should consider all of these things when evaluating the suitability
  * of a given implementation for your application.
- *
+ *  读写锁。读锁允许并发访问共享资源。
  * @see ReentrantReadWriteLock
  * @see Lock
  * @see ReentrantLock

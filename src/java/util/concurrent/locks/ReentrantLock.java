@@ -99,7 +99,7 @@ import java.util.Collection;
  * <p>This lock supports a maximum of 2147483647 recursive locks by
  * the same thread. Attempts to exceed this limit result in
  * {@link Error} throws from locking methods.
- *
+ * 可重入锁。一个线程可以对已被加锁的ReentrantLock锁再次加锁。ReentrantLock对象会维持一个计数器来跟踪lock()方法的嵌套调用。
  * @since 1.5
  * @author Doug Lea
  */

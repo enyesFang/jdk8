@@ -184,7 +184,8 @@ import java.util.concurrent.locks.LockSupport;
  *     }
  *   }
  * }}</pre>
- *
+ * 在大多场景中可以替代ReentrantReadWriteLock。
+ * 三种锁模式：Writing、ReadingOptimistic、Reading。
  * @since 1.8
  * @author Doug Lea
  */

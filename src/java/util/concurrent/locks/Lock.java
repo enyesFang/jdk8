@@ -156,7 +156,7 @@ import java.util.concurrent.TimeUnit;
  * to an interrupt over normal method return. This is true even if it can be
  * shown that the interrupt occurred after another action may have unblocked
  * the thread. An implementation should document this behavior.
- *
+ * 同步锁。
  * @see ReentrantLock
  * @see Condition
  * @see ReadWriteLock
