@@ -132,7 +132,9 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     * 在之前的任务完成后再同步执行fn逻辑，使用主线程执行，如main。
+     * 在之前的任务完成后再同步执行fn逻辑，使用原线程执行，如main。
+     * 由于回调风格的实现，我们不必因为等待一个计算完成而阻塞着调用线程，当CompletableFuture计算完成后执行function。
+     * 它的功能相当于将CompletableFuture<T>转换成CompletableFuture<U>
      * @param fn the function to use to compute the value of
      * the returned CompletionStage
      * @param <U> the function's return type
@@ -269,7 +271,7 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     *
+     * 整合this和other的两个异步计算结果，
      * @param other the other CompletionStage
      * @param fn the function to use to compute the value of
      * the returned CompletionStage
@@ -330,7 +332,7 @@ public interface CompletionStage<T> {
      *
      * See the {@link CompletionStage} documentation for rules
      * covering exceptional completion.
-     *
+     * 当this和other任务都完成时，将this和other的返回值作为action参数传入并执行action逻辑。
      * @param other the other CompletionStage
      * @param action the action to perform before completing the
      * returned CompletionStage
@@ -659,7 +661,7 @@ public interface CompletionStage<T> {
      * when the action returns.  If the supplied action itself encounters an
      * exception, then the returned stage exceptionally completes with this
      * exception unless this stage also completed exceptionally.
-     *
+     * 当CompletableFuture的计算结果完成，或者抛出异常的时候，我们可以执行特定的Action.
      * @param action the action to perform
      * @return the new CompletionStage
      */

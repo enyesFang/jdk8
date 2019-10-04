@@ -108,7 +108,7 @@ public interface Future<V> {
      * <p>After this method returns, subsequent calls to {@link #isDone} will
      * always return {@code true}.  Subsequent calls to {@link #isCancelled}
      * will always return {@code true} if this method returned {@code true}.
-     *
+     * 停止任务的执行。
      * @param mayInterruptIfRunning {@code true} if the thread executing this
      * task should be interrupted; otherwise, in-progress tasks are allowed
      * to complete
@@ -140,7 +140,10 @@ public interface Future<V> {
     /**
      * Waits if necessary for the computation to complete, and then
      * retrieves its result.
-     *
+     * 阻塞住调用线程，直到计算完成返回结果。
+     * 对于结果的获取只能通过阻塞或者轮询的方式得到任务的结果。
+     * 阻塞的方式显然和我们的异步编程的初衷相违背，轮询的方式又会耗费无谓的CPU资源，而且也不能及时地得到计算结果，
+     * 为什么不能用观察者设计模式当计算结果完成及时通知监听者呢？
      * @return the computed result
      * @throws CancellationException if the computation was cancelled
      * @throws ExecutionException if the computation threw an

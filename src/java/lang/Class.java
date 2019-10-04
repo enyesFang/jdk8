@@ -726,7 +726,7 @@ public final class Class<T> implements java.io.Serializable,
      * null is returned.  If this object represents an array class then the
      * {@code Class} object representing the {@code Object} class is
      * returned.
-     *
+     * 超类的 Class（由于编译擦除，没有显示泛型参数：在运行期间，泛型参数类型一律为Object类型）。
      * @return the superclass of the class represented by this object.
      */
     public native Class<? super T> getSuperclass();
@@ -749,7 +749,7 @@ public final class Class<T> implements java.io.Serializable,
      * returned.  If this object represents an array class then the
      * {@code Class} object representing the {@code Object} class is
      * returned.
-     *
+     * 超类的 Type（包含泛型参数）.
      * @throws java.lang.reflect.GenericSignatureFormatError if the generic
      *     class signature does not conform to the format specified in
      *     <cite>The Java&trade; Virtual Machine Specification</cite>

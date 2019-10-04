@@ -1834,7 +1834,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
      * Returns a new CompletableFuture that is asynchronously completed
      * by a task running in the {@link ForkJoinPool#commonPool()} after
      * it runs the given action.
-     *
+     * 以Runnable函数式接口类型为参数，所以CompletableFuture的计算结果为空Void.
      * @param runnable the action to run before completing the
      * returned CompletableFuture
      * @return the new CompletableFuture
@@ -2220,7 +2220,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
      * of a set of independent CompletableFutures before continuing a
      * program, as in: {@code CompletableFuture.allOf(c1, c2,
      * c3).join();}.
-     *
+     * 当所有的 CompletableFuture 完成后创建 CompletableFuture.
      * @param cfs the CompletableFutures
      * @return a new CompletableFuture that is completed when all of the
      * given CompletableFutures complete
@@ -2238,7 +2238,7 @@ public class CompletableFuture<T> implements Future<T>, CompletionStage<T> {
      * CompletableFuture also does so, with a CompletionException
      * holding this exception as its cause.  If no CompletableFutures
      * are provided, returns an incomplete CompletableFuture.
-     *
+     * 在几个计算过程中任意一个完成后创建 CompletableFuture。
      * @param cfs the CompletableFutures
      * @return a new CompletableFuture that is completed with the
      * result or exception of any of the given CompletableFutures when
