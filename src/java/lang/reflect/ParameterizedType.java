@@ -52,6 +52,7 @@ public interface ParameterizedType extends Type {
      * <p>Note that in some cases, the returned array be empty. This can occur
      * if this type represents a non-parameterized type nested within
      * a parameterized type.
+     * 获取参数类型<>里面的那些值,例如Map<K,V> 那么就得到 [K,V]的一个数组。
      *
      * @return an array of {@code Type} objects representing the actual type
      *     arguments to this type
@@ -67,6 +68,7 @@ public interface ParameterizedType extends Type {
     /**
      * Returns the {@code Type} object representing the class or interface
      * that declared this type.
+     * 获取参数类型<>前面的值，例如例如Map<K,V> 那么就得到 Map。
      *
      * @return the {@code Type} object representing the class or interface
      *     that declared this type
@@ -80,7 +82,7 @@ public interface ParameterizedType extends Type {
      * return a representation of {@code O<T>}.
      *
      * <p>If this type is a top-level type, {@code null} is returned.
-     *
+     * 获取其父类的类型，例如Map 有一个内部类Entry,  那么在Map.Entry<K,V> 上调用这个方法就可以获得 Map。
      * @return a {@code Type} object representing the type that
      *     this type is a member of. If this type is a top-level type,
      *     {@code null} is returned

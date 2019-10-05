@@ -59,7 +59,8 @@ public interface TypeVariable<D extends GenericDeclaration> extends Type, Annota
      * java.lang.reflect.ParameterizedType ParameterizedType} for the
      * details of the creation process for parameterized types).
      * <li>Otherwise, B is resolved.  </ul>
-     *
+     * 返回此类型参数的上界列表，如果没有上界则放回Object.
+     * 例如  V extends Number & Serializable 这个类型参数，有两个上界，Number 和 Serializable
      * @throws TypeNotPresentException  if any of the
      *     bounds refers to a non-existent type declaration
      * @throws MalformedParameterizedTypeException if any of the
@@ -73,7 +74,7 @@ public interface TypeVariable<D extends GenericDeclaration> extends Type, Annota
     /**
      * Returns the {@code GenericDeclaration} object representing the
      * generic declaration declared this type variable.
-     *
+     * 类型参数声明时的载体，例如 `class TypeTest<T, V extends Number & Serializable>` ，那么V 的载体就是TypeTest
      * @return the generic declaration declared for this type variable.
      *
      * @since 1.5
@@ -94,7 +95,7 @@ public interface TypeVariable<D extends GenericDeclaration> extends Type, Annota
      * the order of the bounds in the declaration of the type parameter.
      *
      * Returns an array of length 0 if the type parameter declares no bounds.
-     *
+     * Java 1.8加入 AnnotatedType: 如果这个这个泛型参数类型的上界用注解标记了，我们可以通过它拿到相应的注解.
      * @return an array of objects representing the upper bounds of the type variable
      * @since 1.8
      */

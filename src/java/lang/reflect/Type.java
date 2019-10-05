@@ -40,7 +40,7 @@ public interface Type {
     /**
      * Returns a string describing this type, including information
      * about any type parameters.
-     *
+     * 返回这个类型的描述，包括此类型的参数描述。
      * @implSpec The default implementation calls {@code toString}.
      *
      * @return a string describing this type
